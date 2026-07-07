@@ -20,7 +20,6 @@ echo ${SLURM_NODELIST}
 module purge
 module load arch/h100
 module load miniforge/25.9.1
-source /linkhome/rech/genkmw01/uuv83ah/.bashrc
 conda activate lerobot
 
 export WANDB_MODE=offline
