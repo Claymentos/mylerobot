@@ -1,6 +1,4 @@
-                                                                                                                 
-#!/bin/sh
-#SBATCH --job-name=LeRobot
+#!/bin/sh                                                                                                                #SBATCH --job-name=LeRobot
 #SBATCH --output=logs/train-act.%j.out
 #SBATCH --error=logs/train-act.%j.err
 
