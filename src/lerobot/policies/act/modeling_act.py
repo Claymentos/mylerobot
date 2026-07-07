@@ -403,6 +403,8 @@ class ACT(nn.Module):
 
         batch_size = batch[OBS_IMAGES][0].shape[0] if OBS_IMAGES in batch else batch[OBS_ENV_STATE].shape[0]
 
+        if "observation.left_hand_states" in batch and "observation.panda_joint_state" in batch:
+            batch[OBS_STATE] = torch.cat([batch["observation.left_hand_states"], batch["observation.panda_joint_state"]], dim=-1)
         # Prepare the latent for input to the transformer encoder.
         if self.config.use_vae and ACTION in batch and self.training:
             # Prepare the input to the VAE encoder: [cls, *joint_space_configuration, *action_sequence].
@@ -410,6 +412,7 @@ class ACT(nn.Module):
                 self.vae_encoder_cls_embed.weight, "1 d -> b 1 d", b=batch_size
             )  # (B, 1, D)
             if self.config.robot_state_feature:
+                
                 robot_state_embed = self.vae_encoder_robot_state_input_proj(batch[OBS_STATE])
                 robot_state_embed = robot_state_embed.unsqueeze(1)  # (B, 1, D)
             action_embed = self.vae_encoder_action_input_proj(batch[ACTION])  # (B, S, D)

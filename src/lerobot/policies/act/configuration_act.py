@@ -17,6 +17,8 @@ from dataclasses import dataclass, field
 
 from lerobot.configs import NormalizationMode, PreTrainedConfig
 from lerobot.optim import AdamWConfig
+from lerobot.configs.types import FeatureType, PolicyFeature
+from lerobot.utils.constants import ACTION, OBS_STATE
 
 
 @PreTrainedConfig.register_subclass("act")
@@ -174,3 +176,24 @@ class ACTConfig(PreTrainedConfig):
     @property
     def reward_delta_indices(self) -> None:
         return None
+    
+
+    @property
+    def robot_state_feature(self) -> PolicyFeature | None:
+        if not self.input_features:
+            return None
+        
+        if "observation.left_hand_states" in self.input_features and "observation.panda_joint_state" in self.input_features:
+            dim_left = self.input_features["observation.left_hand_states"].shape[0]
+            dim_panda = self.input_features["observation.panda_joint_state"].shape[0]
+            
+            return PolicyFeature(
+                type=FeatureType.STATE,
+                shape=[dim_left + dim_panda],
+            )
+            
+        for ft_name, ft in self.input_features.items():
+            if ft.type is FeatureType.STATE and ft_name == OBS_STATE:
+                return ft
+        return None
+
