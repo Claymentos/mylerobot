@@ -18,15 +18,16 @@ echo ${SLURM_NODELIST}
 
 module purge
 module load arch/h100
-
+module load miniforge/25.9.1
 source /linkhome/rech/genkmw01/uuv83ah/.bashrc
-conda activate mylerobot
+conda activate lerobot
 
 export WANDB_MODE=offline
+export WANDB_API_KEY=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
 
 lerobot-train \
-  --dataset.repo_id="/lustre/fsn1/projects/rech/gjs/uuv83ah/lerobot_datasets/BrunoM42/shelf_picking" \
-  --job_name=act_base-shelf_picking \
+  --dataset.repo_id="/lustre/fsn1/projects/rech/iyg/uvx44rt/lerobot_datasets/ClementP" \
+  --job_name=act_base-pick-and-place \
   --policy.type=act \
   --policy.device=cuda \
   --policy.push_to_hub=False \
@@ -43,7 +44,7 @@ lerobot-train \
   --steps=300_000 \
   --save_freq=100_000 \
   --wandb.enable=true \
-  --wandb.entity=brunomachadocarneiro37 \
+  --wandb.entity=Clémentppr \
   --wandb.disable_artifact=true \
   --wandb.mode=offline \
   --wandb.add_tags=false
