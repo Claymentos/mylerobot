@@ -38,7 +38,6 @@ lerobot-train \
   --policy.optimizer_lr=8e-5 \
   --policy.optimizer_weight_decay=1e-2 \
   --policy.optimizer_lr_backbone=8e-5 \
-  --policy.use_env_state_feature=false \
   --batch_size=448 \
   --num_workers=8 \
   --steps=300_000 \
