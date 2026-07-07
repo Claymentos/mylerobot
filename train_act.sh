@@ -13,6 +13,8 @@
 #SBATCH -t 100:00:00
 #SBATCH --qos=qos_gpu_h100-t4
 #SBATCH --hint=nomultithread
+#SBATCH --mail-user=clement.prigent@ec-lyon.fr
+#SBATCH --mail-typ=FAIL
 
 echo ${SLURM_NODELIST}
 
