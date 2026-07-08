@@ -26,7 +26,7 @@ export WANDB_MODE=offline
 export WANDB_API_KEY=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
 
 lerobot-train \
-  --dataset.repo_id="/lustre/fsn1/projects/rech/iyg/uvx44rt/lerobot_datasets" \
+  --dataset.repo_id="/lustre/fsn1/projects/rech/iyg/uvx44rt/lerobot_datasets/ClementP" \
   --job_name=act_base-pick-and-place \
   --policy.type=act \
   --policy.device=cuda \
