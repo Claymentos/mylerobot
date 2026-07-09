@@ -26,9 +26,12 @@ export WANDB_MODE=offline
 export WANDB_API_KEY=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
 export HF_HOME=$SCRATCH/.cache/huggingface
 export HF_LEROBOT_HOME=$SCRATCH/.cache/huggingface/lerobot
+export HF_HUB_OFFLINE=1
+export HF_DATASETS_OFFLINE=1
 
 lerobot-train \
   --dataset.repo_id="clementPhd/FrankaWujiPickandPlace" \
+  --dataset.revision=v3.0 \
   --job_name=act_base-pick-and-place \
   --policy.type=act \
   --policy.device=cuda \
