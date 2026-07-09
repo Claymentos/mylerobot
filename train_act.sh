@@ -51,7 +51,6 @@ lerobot-train \
   --steps=300_000 \
   --save_freq=100_000 \
   --wandb.enable=true \
-  --wandb.entity=clementppr \
   --wandb.disable_artifact=true \
   --wandb.mode=offline \
   --wandb.add_tags=false
