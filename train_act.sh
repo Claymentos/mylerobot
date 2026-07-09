@@ -28,6 +28,7 @@ export HF_HOME=$SCRATCH/.cache/huggingface
 export HF_LEROBOT_HOME=$SCRATCH/.cache/huggingface/lerobot
 export HF_HUB_OFFLINE=1
 export HF_DATASETS_OFFLINE=1
+export TORCH_HOME=$SCRATCH/.cache/torch
 
 lerobot-train \
   --dataset.repo_id="clementPhd/FrankaWujiPickandPlace" \
