@@ -31,6 +31,7 @@ export HF_DATASETS_OFFLINE=1
 
 lerobot-train \
   --dataset.repo_id="clementPhd/FrankaWujiPickandPlace" \
+  --dataset.root="/lustre/fsn1/projects/rech/iyg/uvx44rt/.cache/huggingface/lerobot/hub/datasets--clementPhd--FrankaWujiPickandPlace/snapshots/d74d0c68ee5de203ded469d2f8180da6b98e71e6" \
   --dataset.revision=v3.0 \
   --job_name=act_base-pick-and-place \
   --policy.type=act \
