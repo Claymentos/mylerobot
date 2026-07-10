@@ -1236,6 +1236,8 @@ class PI0Policy(PreTrainedPolicy):
 
     def prepare_state(self, batch):
         """Pad state"""
+        if "observation.left_hand_states" in batch and "observation.panda_joint_state" in batch:
+            batch[OBS_STATE] = torch.cat([batch["observation.left_hand_states"], batch["observation.panda_joint_state"]], dim=-1)
         state = pad_vector(batch[OBS_STATE], self.config.max_state_dim)
         return state
 
