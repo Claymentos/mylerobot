@@ -49,7 +49,7 @@ lerobot-train \
   --batch_size=448 \
   --num_workers=8 \
   --steps=300_000 \
-  --save_freq=100_000 \
+  --save_freq=50_000 \
   --wandb.enable=true \
   --wandb.disable_artifact=true \
   --wandb.mode=offline \
