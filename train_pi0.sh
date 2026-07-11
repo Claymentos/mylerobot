@@ -46,7 +46,6 @@ lerobot-train \
         --steps=200_000 \
         --save_freq=200_000 \
         --wandb.enable=true \
-        --wandb.entity=brunomachadocarneiro37 \
         --wandb.disable_artifact=true \
         --wandb.mode=offline \
         --wandb.add_tags=false
