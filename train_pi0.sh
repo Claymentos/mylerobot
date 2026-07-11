@@ -44,7 +44,7 @@ lerobot-train \
         --policy.dtype=bfloat16 \
         --batch_size=8 \
         --steps=200_000 \
-        --save_freq=200_000 \
+        --save_freq=50_000 \
         --wandb.enable=true \
         --wandb.disable_artifact=true \
         --wandb.mode=offline \
