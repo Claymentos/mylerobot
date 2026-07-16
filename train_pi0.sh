@@ -24,13 +24,13 @@ conda activate lerobot
 
 export WANDB_MODE=offline
 export WANDB_API_KEY=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
-export HF_HOME=$SCRATCH/.cache/huggingface
+export HF_HOME=$WORK/.cache/huggingface
 export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH
-export HF_LEROBOT_HOME=$SCRATCH/.cache/huggingface/lerobot
+export HF_LEROBOT_HOME=$WORK/.cache/huggingface/lerobot
 export HF_HUB_OFFLINE=1
 export TRANSFORMERS_OFFLINE=1
 export HF_DATASETS_OFFLINE=1
-export TORCH_HOME=$SCRATCH/.cache/torch
+export TORCH_HOME=$WORK/.cache/torch
 
 lerobot-train \
         --job_name=pi0_base_pick_and_place-200k_steps-bs_8-lr_5e-5 \
