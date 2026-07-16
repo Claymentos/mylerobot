@@ -12,6 +12,8 @@
 #SBATCH -t 20:00:00
 #SBATCH --qos=qos_gpu_h100-t4
 #SBATCH --hint=nomultithread
+#SBATCH --mail-user=clement.prigent@ec-lyon.fr
+#SBATCH --mail-typ=FAIL
 
 echo ${SLURM_NODELIST}
 
@@ -26,6 +28,7 @@ export HF_HOME=$SCRATCH/.cache/huggingface
 export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH
 export HF_LEROBOT_HOME=$SCRATCH/.cache/huggingface/lerobot
 export HF_HUB_OFFLINE=1
+export TRANSFORMERS_OFFLINE=1
 export HF_DATASETS_OFFLINE=1
 export TORCH_HOME=$SCRATCH/.cache/torch
 
